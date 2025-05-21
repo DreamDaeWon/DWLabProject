@@ -27,11 +27,6 @@ public:
 	void ReleaseUploadBuffers();
 
 
- 
-
-	ID3D12PipelineState* m_pd3dPipelineState = NULL;
-	//파이프라인 상태를 나타내는 인터페이스 포인터이다. 
-
 protected:
 	//씬은 셰이더들의 집합이다. 셰이더들은 게임 객체들의 집합이다. 
 	CShader** m_ppShaders = NULL;

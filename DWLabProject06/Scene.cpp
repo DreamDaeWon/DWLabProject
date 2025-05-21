@@ -29,17 +29,18 @@ ID3D12RootSignature* CScene::CreateGraphicsRootSignature(ID3D12Device* pd3dDevic
     d3dRootSignatureDesc.pParameters = NULL;
     d3dRootSignatureDesc.NumStaticSamplers = 0;
     d3dRootSignatureDesc.pStaticSamplers = NULL;
-    d3dRootSignatureDesc.Flags =
-        D3D12_ROOT_SIGNATURE_FLAG_ALLOW_INPUT_ASSEMBLER_INPUT_LAYOUT;
+    d3dRootSignatureDesc.Flags = D3D12_ROOT_SIGNATURE_FLAG_ALLOW_INPUT_ASSEMBLER_INPUT_LAYOUT;
+
     ID3DBlob* pd3dSignatureBlob = NULL;
     ID3DBlob* pd3dErrorBlob = NULL;
-    ::D3D12SerializeRootSignature(&d3dRootSignatureDesc, D3D_ROOT_SIGNATURE_VERSION_1,
-        &pd3dSignatureBlob, &pd3dErrorBlob);
+
+    ::D3D12SerializeRootSignature(&d3dRootSignatureDesc, D3D_ROOT_SIGNATURE_VERSION_1, &pd3dSignatureBlob, &pd3dErrorBlob);
     pd3dDevice->CreateRootSignature(0, pd3dSignatureBlob->GetBufferPointer(),
-        pd3dSignatureBlob->GetBufferSize(), __uuidof(ID3D12RootSignature), (void
-            **)&pd3dGraphicsRootSignature);
+        pd3dSignatureBlob->GetBufferSize(), __uuidof(ID3D12RootSignature), (void**)&pd3dGraphicsRootSignature);
+
     if (pd3dSignatureBlob) pd3dSignatureBlob->Release();
     if (pd3dErrorBlob) pd3dErrorBlob->Release();
+
     return(pd3dGraphicsRootSignature);
 }
 
@@ -57,28 +58,28 @@ void CScene::BuildObjects(ID3D12Device* pd3dDevice, ID3D12GraphicsCommandList* p
     //씬을 그리기 위한 셰이더 객체를 생성한다. 
     m_nShaders = 1;
     m_ppShaders = new CShader * [m_nShaders];
+
     CShader* pShader = new CShader();
     pShader->CreateShader(pd3dDevice, m_pd3dGraphicsRootSignature);
     pShader->BuildObjects(pd3dDevice, pd3dCommandList, NULL);
+
     m_ppShaders[0] = pShader;
 }
 
 void CScene::ReleaseObjects()
 {
-    if (m_pd3dGraphicsRootSignature) m_pd3dGraphicsRootSignature->Release();
+    if (m_pd3dGraphicsRootSignature) 
+        m_pd3dGraphicsRootSignature->Release();
+
     if (m_ppShaders)
     {
         for (int i = 0; i < m_nShaders; i++)
         {
             m_ppShaders[i]->ReleaseShaderVariables();
-            m_ppShaders[i]->ReleaseObjects(); 
+            m_ppShaders[i]->ReleaseObjects();
             m_ppShaders[i]->Release();
         }
         delete[] m_ppShaders;
-
-
-
-
     }
 }
 
@@ -98,6 +99,10 @@ bool CScene::ProcessInput(UCHAR* pKeysBuffer)
 
 void CScene::AnimateObjects(float fTimeElapsed)
 {
+    for (int i = 0; i < m_nShaders; i++)
+    {
+        m_ppShaders[i]->AnimateObjects(fTimeElapsed);
+    }
 }
 
 
