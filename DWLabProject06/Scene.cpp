@@ -75,6 +75,10 @@ void CScene::ReleaseObjects()
             m_ppShaders[i]->Release();
         }
         delete[] m_ppShaders;
+
+
+
+
     }
 }
 
