@@ -45,7 +45,7 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
 
     MSG msg;
 
-    gGameFramework.ChangeSwapChainState();
+    //gGameFramework.ChangeSwapChainState();
 
     // 기본 메시지 루프입니다:
     while (1)
@@ -148,7 +148,6 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
 
     ShowWindow(hMainWnd, nCmdShow);
     UpdateWindow(hMainWnd);
-
 
 #ifdef _WITH_SWAPCHAIN_FULLSCREEN_STATE
     gGameFramework.ChangeSwapChainState();

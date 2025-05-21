@@ -2,7 +2,7 @@
 // 또는 프로젝트 특정 포함 파일이 들어 있는 포함 파일입니다.
 //
 
-#define _WITH_SWAPCHAIN_FULLSCREEN_STATE
+//#define _WITH_SWAPCHAIN_FULLSCREEN_STATE
 
 #pragma once
 #include <tchar.h>
