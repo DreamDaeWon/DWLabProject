@@ -25,6 +25,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "DWLabProject08", "DWLabProj
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "DWLabProject09", "DWLabProject09\DWLabProject09.vcxproj", "{CF6CAFAC-2089-4353-8E6B-A5FC2F225FE8}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "DWLabProject10", "DWLabProject10\DWLabProject10.vcxproj", "{4B0CC104-73E3-4C15-94BD-8C534C43E01A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -121,6 +123,14 @@ Global
 		{CF6CAFAC-2089-4353-8E6B-A5FC2F225FE8}.Release|x64.Build.0 = Release|x64
 		{CF6CAFAC-2089-4353-8E6B-A5FC2F225FE8}.Release|x86.ActiveCfg = Release|Win32
 		{CF6CAFAC-2089-4353-8E6B-A5FC2F225FE8}.Release|x86.Build.0 = Release|Win32
+		{4B0CC104-73E3-4C15-94BD-8C534C43E01A}.Debug|x64.ActiveCfg = Debug|x64
+		{4B0CC104-73E3-4C15-94BD-8C534C43E01A}.Debug|x64.Build.0 = Debug|x64
+		{4B0CC104-73E3-4C15-94BD-8C534C43E01A}.Debug|x86.ActiveCfg = Debug|Win32
+		{4B0CC104-73E3-4C15-94BD-8C534C43E01A}.Debug|x86.Build.0 = Debug|Win32
+		{4B0CC104-73E3-4C15-94BD-8C534C43E01A}.Release|x64.ActiveCfg = Release|x64
+		{4B0CC104-73E3-4C15-94BD-8C534C43E01A}.Release|x64.Build.0 = Release|x64
+		{4B0CC104-73E3-4C15-94BD-8C534C43E01A}.Release|x86.ActiveCfg = Release|Win32
+		{4B0CC104-73E3-4C15-94BD-8C534C43E01A}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
