@@ -140,15 +140,8 @@ void CShader::CreateShader(ID3D12Device* pd3dDevice, ID3D12RootSignature* pd3dRo
 		d3dPipelineStateDesc.InputLayout.pInputElementDescs;
 }
 
-//셰이더 객체가 포함하는 게임 객체들을 생성한다. 
-void CShader::BuildObjects(ID3D12Device* pd3dDevice, ID3D12GraphicsCommandList* pd3dCommandList, void* pContext)
-{
-	CTriangleMesh* pTriangleMesh = new CTriangleMesh(pd3dDevice, pd3dCommandList);
-	m_nObjects = 1;
-	m_ppObjects = new CGameObject * [m_nObjects];
-	m_ppObjects[0] = new CGameObject();
-	m_ppObjects[0]->SetMesh(pTriangleMesh);
-}
+
+
 void CShader::ReleaseObjects()
 {
 	if (m_ppObjects)
@@ -188,3 +181,4 @@ void CShader::Render(ID3D12GraphicsCommandList* pd3dCommandList)
 		if (m_ppObjects[j]) m_ppObjects[j]->Render(pd3dCommandList);
 	}
 }
+
